@@ -1,0 +1,4 @@
+#Fri May 22 20:02:01 BRT 2020
+base.0=/home/enderson/Área de Trabalho/Projetos Flutter/app_despesas/app_despesas/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
