@@ -12,7 +12,12 @@ class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage());
+      home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        accentColor: Colors.red,
+      ),
+      );
   }
 }
 
@@ -26,14 +31,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 
-  final _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tênis',
-      value: 200.00,
-      date: DateTime.now()  
-      ),
+  final List<Transaction> _transactions = [
   ]; 
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tr) {
+      return false;
+    }).toList();
+  }
 
   _addTransaction(String title, double value){
     final newTransaction = Transaction(
@@ -46,6 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+
+    Navigator.of(context).pop();
+
   }
 
    _openTransactionFormModal(BuildContext context){
